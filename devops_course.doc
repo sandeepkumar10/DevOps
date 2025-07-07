@@ -1,0 +1,349 @@
+DEVOPS
+
+What is DevOps?
+DevOps is a set of practices, tools, and culture that integrate and automate the work of software development and IT operations. The goal is to shorten the software development lifecycle and deliver high-quality applications - by ensuring automation, quality, testing and continuous observability. 
+Why DevOps?
+DevOps addresses the challenge of slow and fragmented application delivery caused by the involvement of multiple stakeholders and teams from development phase to production, due to manual workflows. DevOps streamlines this process by automating the software delivery and ensuring consistent code quality to deliver the applications in much faster and efficient way.  
+How to introduce yourself for a DevOps role?
+1. Your current experience in DevOps
+2. Your previous background before as a DevOps Engineer
+3. Your current roles and responsibilities as a DevOps Engineer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Software Development Lifecycle (SDLC)
+Software development lifecycle (SDLC) is a structured process that is used to design, develop, and test high-quality products.
+
+ 
+ 
+Where does a DevOps Engineer fits in Software Development Lifecycle?
+A DevOps Engineer primarily contributes during the Build, Test, and Deployment phases of the SDLC by automating the processes to accelerate delivery and enhance the efficiency of application deployment.
+
+
+
+What is a server?
+A server is a tangible computer—a piece of hardware—that is specifically built to provide services, data or resources to other computers (clients) over a network. It is usually more powerful and reliable than regular desktop computers, and often housed in data centres where they are kept cool, secure, and connected to the internet.
+Examples of Use:
+Hosting websites
+Storing and backing up data
+Running enterprise applications
+Supporting virtual machines
+
+Virtual Machines
+A virtual machine (VM) is a software-based emulation of a physical computer that behaves like a separate computer system. Each VM operates with its own virtual CPU, memory, and hardware components. This means that multiple VMs, such as VM1 and VM2, running on the same physical server are completely independent of one another—they do not share or rely on each other’s resources.
+Think of it like this, a VM is like a computer within a computer. You can run multiple isolated systems on one server, each acting as a separate computer.
+Benefits of Virtual Machines:
+Isolation: Each VM is separate, so problems in one don’t affect others.
+Efficiency: Multiple VMs can run on one physical server, using resources more efficiently.
+Flexibility: Easy to copy, move, back up, or scale.
+Cost-saving: Reduces the need for physical hardware.
+
+Hypervisor
+A hypervisor is a software that allows multiple virtual machines (VMs) to run on a single physical machine by managing and sharing its hardware resources (like CPU, memory, storage, etc.)
+In simple terms, a hypervisor is like a traffic controller that sits between the physical hardware and the virtual machines, making sure each VM gets the resources it needs—without interfering with others.
+What Hypervisors Do:
+Create and manage virtual machines.
+Allocate hardware resources to each VM.
+Keep VMs isolated and secure from each other.
+Enable snapshotting, migration, and cloning of VMs.
+
+
+
+
+
+
+
+
+
+AWS Command Line Interface:
+The AWS Command Line Interface (AWS CLI) is an open-source tool that enables you to interact with AWS services and implement functionality equivalent to that provided by the browser-based AWS Management Console from the command prompt.
+All IaaS (infrastructure as a service) AWS administration, management, and access functions in the AWS Management Console are available in the AWS CLI. It provides direct access to the public APIs of AWS services. You can explore a service's capabilities with the AWS CLI, and develop shell scripts to manage your resources. 
+
+                                                                                            AWS CLI EC2 Commands
+
+To Launch an EC2 Instance using AWS CLI:
+aws ec2 run-instances --image-id ami-042b4708b1d05f512 --count 1 --instance-type t3.micro --key-name devopsec2keypair --security-group-ids sg-0060439de12b99fa1
+To add a tag to your instance:
+aws ec2 create-tags --resources i-0e2747fc49bf17d91 --tags Key=Name,Value=PRODEC2
+To list your instances:
+aws ec2 describe-instances
+To filter the list to only your t3.micro instances and outputs only the InstanceId values for each match:
+aws ec2 describe-instances --filters "Name=instance-type,Values=t3.micro" --query "Reservations[].Instances[].InstanceId"
+To list any of your instances that have a tag Name=PRODEC2:
+aws ec2 describe-instances --filters "Name=tag:Name,Values=PRODEC2"
+To stop an EC2 instance:
+aws ec2 stop-instances --instance-ids i-064c56b4b80927487
+To start an EC2 instance:
+aws ec2 start-instances --instance-ids i-064c56b4b80927487
+To delete or terminate an EC2 instance:
+aws ec2 stop-instances --instance-ids i-00389f8eb653e8afb
+aws ec2 terminate-instances --instance-ids i-00389f8eb653e8afb
+
+
+Basic Shell Scripting Programs:
+✅1. Hello World
+Write a script to print Hello, World! on the terminal.
+echo "Hello, World!"
+
+✅2. Variables and Echo
+Create a script that defines a variable name and prints:
+name="Sandeep"
+echo "Hello, $name"
+
+✅3. Read User Input
+Write a script that asks for the user’s name and age, then prints a message:
+read -p "Enter your name: " name
+read -p "Enter your age: " age
+echo "Hi $name, you are $age years old."
+
+✅4. Simple If Condition
+Write a script that checks if a number is positive, negative, or zero.
+read -p "Enter a number: " number
+if (( $number > 0 )); then
+echo "$number is a positive number"
+fi
+if (( $number < 0 )); then
+        echo "$number is a negative number"
+fi
+if (($number == 0)); then
+        echo "$number is a zero"
+fi
+
+✅5. Check Even or Odd
+Take a number from the user and check whether it is even or odd.
+read -p "Enter a number: " number
+if (( $number % 2 == 0 )); then
+        echo "$number is an even number"
+else
+        echo "$number is an odd number"
+fi
+✅6. Loop from 1 to 10
+Print numbers from 1 to 10 using a for loop.
+for i in {1..10}; do
+	echo "$i"
+done
+
+✅7. Sum of Numbers
+Write a script to calculate the sum of all numbers from 1 to N (user input).
+read -p "Enter a number: " N
+if (( N<=0 )); then
+	echo "Please enter a number that is greater than 0"
+	exit 1
+fi
+sum=0
+for (( i=1; i<=N; i++ )); do
+	sum=$(( sum+i ))
+done
+echo "The sum of the numbers from 1 to $N is: $sum"
+
+✅8. Print Multiplication Table
+Ask the user for a number and print its multiplication table up to 10.
+read -p "Enter a number: " N
+if (( $N<=0 )); then
+	echo "Please enter a number that is greater than 0"
+	exit 1
+fi
+mul=1
+for i in {1..10}; do
+	mul=$(( N*I ))
+	echo "$N x $i = $mul"
+done
+
+
+
+✅9. File Existence Check
+Write a script that checks if a given file exists and prints "File found" or "File not found".
+read -p "Enter the file name: " Filename
+result=$( sudo find / -name "$Filename" 2>/dev/null ) 
+if [[ -z "$result" ]]; then
+	echo "File not found"
+else
+	echo "File found at:"
+	echo "$result"
+fi
+
+✅10. Directory Listing
+List all files in the current directory using a loop (without ls).
+read -p "Enter the directory path: " D
+echo "The files in directory: $D"
+for file in "$D"/*; do
+	if [[ -f "$file" ]]; then
+		echo "${file##*/}"
+	fi
+done
+
+✅11. Number Divisibility
+Print numbers from 1 to 100 that are divisible by 3 or 5 but not by 15.
+for i in {1..100}; do
+	if (( ( i % 3 == 0 || i % 5 == 0 ) &&  i % 15 != 0 )); then
+		echo "$i"
+	fi
+done
+
+
+
+
+
+
+✅12. Find Largest of 3 Numbers
+Take 3 numbers from the user and print the largest one.
+read -p "Enter the first number: " a
+read -p "Enter the second number: " b
+read -p "Enter the third number: " c
+if (( ( a > b ) && ( a > c ) )); then
+	echo "$a is greatest"
+elif (( ( b > a ) && ( b > c ) )); then 
+	echo "$b is greatest"
+else
+	echo "$c is greatest"
+fi
+
+✅13. Basic Calculator
+Create a script that takes two numbers and an operator (+, -, *, /) and performs the calculation.
+read -p "Enter a number: " a
+read -p "Enter another number: " b
+read -p "Enter an operator (+, -, *, /): " op
+case "$op" in 
+  +)
+result=$( bc <<< "$a + $b" )
+
+
+	-)
+		result=$( echo "$a - $b" | bc )
+	;;
+	
+	'*')
+		result=$( bc <<< "$a * $b" )
+	;;
+
+	/)
+		if [[ $( echo "$b == 0" | bc ) -eq 1 ]]; then
+			echo "a number cannot be divisible by zero"
+			exit 1
+		fi
+		
+		result=$( bc <<< "scale=2; $a / $b" )
+	;;
+	
+	*)
+		echo "Invalid operator $op"
+		exit 1
+	;;
+
+esac
+echo "Result: $result"
+
+
+✅14. Countdown Timer
+Write a script that counts down from 5 to 1 with 1-second pauses using sleep.
+echo "Countdown starts"
+for ((i=5; i>=1; i--)); do
+	echo "$i"
+	sleep 1
+done
+echo "Countdown completed"
+
+✅15. Loop Over Array
+Create an array of fruits and print each fruit using a for loop.
+ary=(apple mango banana grapes pineapple "drangon fruit" avacado watermelon muskmelon orange)
+for i in "${ary[@]}"; do
+	echo "$i"
+done
+
+
+
+
+To check the status of EC2 Instances: Basic Shell Scripting Automation Project
+Required Fiels: Instance ID, Tag Name, Tag Environment, State, Public IP Address
+recipient="sandeepkumar1091998@gmail.com"
+outputfile=$(mktemp)
+aws ec2 describe-instances --query "Reservations[].Instances[].{InstanceID: InstanceId, Hostname: Tags[?Key=='Name']|[0].Value, Environment: Tags[?Key=='Environment']|[0].Value, Status: State.Name, IPAddress: PublicIpAddress}" --output table >> "$outputfile"
+mail -s "AWS Instances Check" "$recipient" < "$outputfile"
+rm "$outputfile"
+
+Cronjob Schedule for 6pm every Sunday
+0 18 * * 0 /home/ubuntu/awsece2statuscheck.sh
+
+Networking Concepts
+IP Address: IPV4
+IPV4 standard IP Addresses are made up of 4 numbers (called octates), separated by dots. Each number or octate is a value from 0-255 and each octate represents 8bits (= 1byte).
+So, the full IPV4 address is a 32bit unique number.
+
+Subnet IP Addresses:
+Subnetting is the process of dividing a larger IP network into smaller, more manageable sub-networks, or subnets.
+Each subnet functions as its own small network.
+Subnetting helps improve network performance, security, and organization.
+Why Subnet?
+Imagine a company has a big network like 172.16.0.0/16, which includes 65,536 IP addresses.
+Instead of dumping all devices into this huge network, we can subnet it to create smaller groups — like one for HR, another for IT, another for Finance, etc.
+What is CIDR?
+CIDR (Classless Inter-Domain Routing) is a method used to:
+Assign IP addresses
+Efficiently divide and organize networks
+<IP Address>/<prefix length> 
+Example: 192.168.1.0/24
+
+192.168.1.0 is the network address
+/24 is the CIDR prefix, meaning the first 24 bits are for the network, and the remaining bits are for hosts
+CIDR	Subnet Mask	Host Bits	Usable IPs
+/8	255.0.0.0	24	16,777,214
+/16	255.255.0.0	16	65,534
+/24	255.255.255.0	8	254
+/30	255.255.255.252	2	2 (point-to-point)
+
+Example Breakdown CIDR: 172.16.0.0/20
+	Network – 172.16.0.0
+	Broadcast – 172.16.15.255
+	Subnet Mask – 255.255.240.0
+	Hosts – 30-20=12 – 2^12 = 4096 hosts 
+
+                                                                                   GIT and GitHub
+
+Git is a version control system — a tool that helps you track changes in your code, collaborate with others, and manage your project’s history.
+Imagine you're writing a document, and every time you make a major edit, you take a snapshot. Git does that for code — but way smarter:
+Tracks every change you make to files
+Lets you go back to earlier versions 
+Allows teams to work on the same project at the same time
+Helps prevent lost work or conflicts between changes
+Git vs. GitHub
+Git = the tool that tracks changes
+GitHub = a cloud platform for hosting Git repositories and collaborating online
+Basic Git Workflow
+git init – Create a new Git repo
+git add – Stage files you want to track
+git commit – Save a snapshot of your work
+git push – Upload your changes to GitHub
+git pull – Get others’ changes from GitHub
+GitHub is a website and cloud service that hosts Git repositories online. It lets you:
+Store your code
+Collaborate with others
+Track changes
+Work from anywhere
+It's built on top of Git, the version control system.
+
+Git is the tool you use locally to track code changes.
+GitHub is the online platform where you can:
+Back up your Git project
+Share it with others
+Collaborate with teammates or the world
+GitHub is the "online home" for your Git-tracked code — perfect for backup, sharing, and teamwork
+
