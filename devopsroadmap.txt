@@ -3,7 +3,6 @@ AWS
 Terraform
 Python
 
-
 DevOps Fundamentals:
 1. What is DevOps and Why DevOps ?
 2. Software Development Life Cycle (SDLC)
@@ -17,7 +16,6 @@ DevOps Fundamentals:
 10. Basics of Terraform
 11. Docker (Containerzation)
 12. Kubernetes
-
 
 Cloud: AWS
 1. What is Public Cloud and How is it different from Private Cloud?
@@ -34,7 +32,6 @@ Cloud: AWS
 11. Security and Compliance
 12. Monitor you Cloud Platform
 
-
 Infrastructure as Code (IAC): Terraform
 1. Fundamentals of IaC, Terraform
 2. Providers
@@ -46,7 +43,6 @@ Infrastructure as Code (IAC): Terraform
 8. Environments
 9. Project
 
-
 Python for DevOps:
 1. How do you use Python as DevOps Engineer and it's use cases.
 2. Fundamentals - Variables
@@ -56,7 +52,3 @@ Python for DevOps:
                 - Virtual Environment
                 - API calling using Python 
                 - Create a Jira ticket using Pyhton
-
-
-
-
