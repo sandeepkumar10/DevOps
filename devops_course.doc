@@ -316,7 +316,7 @@ Example Breakdown CIDR: 172.16.0.0/20
 	Subnet Mask – 255.255.240.0
 	Hosts – 30-20=12 – 2^12 = 4096 hosts 
 
-                                                                                   GIT and GitHub
+GIT and GitHub
 
 Git is a version control system — a tool that helps you track changes in your code, collaborate with others, and manage your project’s history.
 Imagine you're writing a document, and every time you make a major edit, you take a snapshot. Git does that for code — but way smarter:
@@ -333,17 +333,17 @@ git add – Stage files you want to track
 git commit – Save a snapshot of your work
 git push – Upload your changes to GitHub
 git pull – Get others’ changes from GitHub
-GitHub is a website and cloud service that hosts Git repositories online. It lets you:
-Store your code
-Collaborate with others
-Track changes
-Work from anywhere
-It's built on top of Git, the version control system.
-
+GitHub is a website and cloud service that hosts Git repositories online. It's built on top of Git, the version control system.
 Git is the tool you use locally to track code changes.
 GitHub is the online platform where you can:
 Back up your Git project
 Share it with others
 Collaborate with teammates or the world
 GitHub is the "online home" for your Git-tracked code — perfect for backup, sharing, and teamwork
+Basic Git Commands:
+git init
+git add filename
+git restore --staged filename
+git commit -m “Type your you message”
+git rm --cached -r filename
 
