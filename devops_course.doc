@@ -1,0 +1,100 @@
+DEVOPS
+
+What is DevOps?
+DevOps is a set of practices, tools, and culture that integrate and automate the work of software development and IT operations. The goal is to shorten the software development lifecycle and deliver high-quality applications - by ensuring automation, quality, testing and continuous observability. 
+Why DevOps?
+DevOps addresses the challenge of slow and fragmented application delivery caused by the involvement of multiple stakeholders and teams from development phase to production, due to manual workflows. DevOps streamlines this process by automating the software delivery and ensuring consistent code quality to deliver the applications in much faster and efficient way.  
+How to introduce yourself for a DevOps role?
+1. Your current experience in DevOps
+2. Your previous background before as a DevOps Engineer
+3. Your current roles and responsibilities as a DevOps Engineer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Software Development Lifecycle (SDLC)
+Software development lifecycle (SDLC) is a structured process that is used to design, develop, and test high-quality products.
+
+ 
+ 
+Where does a DevOps Engineer fits in Software Development Lifecycle?
+A DevOps Engineer primarily contributes during the Build, Test, and Deployment phases of the SDLC by automating the processes to accelerate delivery and enhance the efficiency of application deployment.
+
+
+
+What is a server?
+A server is a tangible computer—a piece of hardware—that is specifically built to provide services, data or resources to other computers (clients) over a network. It is usually more powerful and reliable than regular desktop computers, and often housed in data centres where they are kept cool, secure, and connected to the internet.
+Examples of Use:
+Hosting websites
+Storing and backing up data
+Running enterprise applications
+Supporting virtual machines
+
+Virtual Machines
+A virtual machine (VM) is a software-based emulation of a physical computer that behaves like a separate computer system. Each VM operates with its own virtual CPU, memory, and hardware components. This means that multiple VMs, such as VM1 and VM2, running on the same physical server are completely independent of one another—they do not share or rely on each other’s resources.
+Think of it like this, a VM is like a computer within a computer. You can run multiple isolated systems on one server, each acting as a separate computer.
+Benefits of Virtual Machines:
+Isolation: Each VM is separate, so problems in one don’t affect others.
+Efficiency: Multiple VMs can run on one physical server, using resources more efficiently.
+Flexibility: Easy to copy, move, back up, or scale.
+Cost-saving: Reduces the need for physical hardware.
+
+Hypervisor
+A hypervisor is a software that allows multiple virtual machines (VMs) to run on a single physical machine by managing and sharing its hardware resources (like CPU, memory, storage, etc.)
+In simple terms, a hypervisor is like a traffic controller that sits between the physical hardware and the virtual machines, making sure each VM gets the resources it needs—without interfering with others.
+What Hypervisors Do:
+Create and manage virtual machines.
+Allocate hardware resources to each VM.
+Keep VMs isolated and secure from each other.
+Enable snapshotting, migration, and cloning of VMs.
+
+
+
+
+
+
+
+
+
+AWS Command Line Interface:
+The AWS Command Line Interface (AWS CLI) is an open-source tool that enables you to interact with AWS services and implement functionality equivalent to that provided by the browser-based AWS Management Console from the command prompt.
+All IaaS (infrastructure as a service) AWS administration, management, and access functions in the AWS Management Console are available in the AWS CLI. It provides direct access to the public APIs of AWS services. You can explore a service's capabilities with the AWS CLI, and develop shell scripts to manage your resources. 
+
+                                                                                            AWS CLI EC2 Commands
+
+To Launch an EC2 Instance using AWS CLI:
+aws ec2 run-instances --image-id ami-042b4708b1d05f512 --count 1 --instance-type t3.micro --key-name devopsec2keypair --security-group-ids sg-0060439de12b99fa1
+To add a tag to your instance:
+aws ec2 create-tags --resources i-0e2747fc49bf17d91 --tags Key=Name,Value=PRODEC2
+To list your instances:
+aws ec2 describe-instances
+To filter the list to only your t3.micro instances and outputs only the InstanceId values for each match:
+aws ec2 describe-instances --filters "Name=instance-type,Values=t3.micro" --query "Reservations[].Instances[].InstanceId"
+To list any of your instances that have a tag Name=PRODEC2:
+aws ec2 describe-instances --filters "Name=tag:Name,Values=PRODEC2"
+To stop an EC2 instance:
+aws ec2 stop-instances --instance-ids i-064c56b4b80927487
+To start an EC2 instance:
+aws ec2 start-instances --instance-ids i-064c56b4b80927487
+To delete or terminate an EC2 instance:
+aws ec2 stop-instances --instance-ids i-00389f8eb653e8afb
+aws ec2 terminate-instances --instance-ids i-00389f8eb653e8afb
+
