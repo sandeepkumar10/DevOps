@@ -2,6 +2,7 @@ DEVOPS
 
 What is DevOps?
 DevOps is a set of practices, tools, and culture that integrate and automate the work of software development and IT operations. The goal is to shorten the software development lifecycle and deliver high-quality applications - by ensuring automation, quality, testing and continuous observability. 
+
 Why DevOps?
 DevOps addresses the challenge of slow and fragmented application delivery caused by the involvement of multiple stakeholders and teams from development phase to production, due to manual workflows. DevOps streamlines this process by automating the software delivery and ensuring consistent code quality to deliver the applications in much faster and efficient way.  
 How to introduce yourself for a DevOps role?
@@ -10,35 +11,11 @@ How to introduce yourself for a DevOps role?
 3. Your current roles and responsibilities as a DevOps Engineer
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Software Development Lifecycle (SDLC)
 Software development lifecycle (SDLC) is a structured process that is used to design, develop, and test high-quality products.
 
- 
- 
 Where does a DevOps Engineer fits in Software Development Lifecycle?
 A DevOps Engineer primarily contributes during the Build, Test, and Deployment phases of the SDLC by automating the processes to accelerate delivery and enhance the efficiency of application deployment.
-
-
 
 What is a server?
 A server is a tangible computer—a piece of hardware—that is specifically built to provide services, data or resources to other computers (clients) over a network. It is usually more powerful and reliable than regular desktop computers, and often housed in data centres where they are kept cool, secure, and connected to the internet.
@@ -66,19 +43,11 @@ Allocate hardware resources to each VM.
 Keep VMs isolated and secure from each other.
 Enable snapshotting, migration, and cloning of VMs.
 
-
-
-
-
-
-
-
-
 AWS Command Line Interface:
 The AWS Command Line Interface (AWS CLI) is an open-source tool that enables you to interact with AWS services and implement functionality equivalent to that provided by the browser-based AWS Management Console from the command prompt.
 All IaaS (infrastructure as a service) AWS administration, management, and access functions in the AWS Management Console are available in the AWS CLI. It provides direct access to the public APIs of AWS services. You can explore a service's capabilities with the AWS CLI, and develop shell scripts to manage your resources. 
 
-                                                                                            AWS CLI EC2 Commands
+AWS CLI EC2 Commands:
 
 To Launch an EC2 Instance using AWS CLI:
 aws ec2 run-instances --image-id ami-042b4708b1d05f512 --count 1 --instance-type t3.micro --key-name devopsec2keypair --security-group-ids sg-0060439de12b99fa1
@@ -136,6 +105,7 @@ if (( $number % 2 == 0 )); then
 else
         echo "$number is an odd number"
 fi
+
 ✅6. Loop from 1 to 10
 Print numbers from 1 to 10 using a for loop.
 for i in {1..10}; do
@@ -168,8 +138,6 @@ for i in {1..10}; do
 	echo "$N x $i = $mul"
 done
 
-
-
 ✅9. File Existence Check
 Write a script that checks if a given file exists and prints "File found" or "File not found".
 read -p "Enter the file name: " Filename
@@ -198,11 +166,6 @@ for i in {1..100}; do
 		echo "$i"
 	fi
 done
-
-
-
-
-
 
 ✅12. Find Largest of 3 Numbers
 Take 3 numbers from the user and print the largest one.
@@ -252,7 +215,6 @@ result=$( bc <<< "$a + $b" )
 esac
 echo "Result: $result"
 
-
 ✅14. Countdown Timer
 Write a script that counts down from 5 to 1 with 1-second pauses using sleep.
 echo "Countdown starts"
@@ -270,10 +232,9 @@ for i in "${ary[@]}"; do
 done
 
 
-
-
 To check the status of EC2 Instances: Basic Shell Scripting Automation Project
 Required Fiels: Instance ID, Tag Name, Tag Environment, State, Public IP Address
+
 recipient="sandeepkumar1091998@gmail.com"
 outputfile=$(mktemp)
 aws ec2 describe-instances --query "Reservations[].Instances[].{InstanceID: InstanceId, Hostname: Tags[?Key=='Name']|[0].Value, Environment: Tags[?Key=='Environment']|[0].Value, Status: State.Name, IPAddress: PublicIpAddress}" --output table >> "$outputfile"
