@@ -8,4 +8,4 @@
 ##############################
 
 
-echo "Hello, World!"
+echo "Hello, World! This is my first shell script"
