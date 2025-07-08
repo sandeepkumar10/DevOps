@@ -11,3 +11,4 @@
 echo "Hello, World!"
 echo "This is my first shell script"
 echo "This merge script"
+echo "This is a rebase script"
