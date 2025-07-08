@@ -308,3 +308,44 @@ git restore --staged filename
 git commit -m “Type your you message”
 git rm --cached -r filename
 
+Set Up and Connect a Git Repository from Your Local VM to GitHub
+1️⃣ Install Git (on your local VM):
+sudo apt-get update
+sudo apt-get install git
+2️⃣ Create a Project Directory:
+mkdir devops
+cd devops
+3️⃣ Initialize a Local Git Repository:
+git init
+4️⃣ Stage Files You Want to Track:
+git add filename            # Add a specific file
+OR
+git add .                      # Add all files in the directory
+5️⃣ Unstage a File If You Made a Mistake:
+git restore --staged filename  #This removes the file from the staging area but keeps it in your working directory.
+6️⃣ Commit the Staged Files:
+git commit -m "This is my first commit"
+7️⃣ Stop Tracking a File (Untrack Without Deleting):
+git rm --cached -r filename  #Use this if you want Git to stop tracking a file or folder, but don’t want to delete it from your local system.
+8️⃣ Create a New Repository on GitHub
+9️⃣ Connect Your Local Repo to GitHub:
+git remote add origin https://github.com/your-username/your-repo.git  #This command links your local repo to the remote GitHub repo (called origin).
+🔟 Push Local Code to GitHub:
+git push -u origin main  #-u sets the upstream so future git push or git pull will know which branch to use.
+Pull Changes from GitHub to Your VM (When Needed):
+git pull
+
+Git Advanced Commands
+Clone a GitHub Repository
+git clone https://github.com/your-username/repo-name.git	#Clones a remote GitHub repository to your local machine.
+Create and Switch to a New Branch
+git checkout -b new-branch-name	 #Creates a new branch and switches to it immediately.
+Switch Between Branches
+git checkout branch-name	  #Switches to an existing branch.
+Delete a Local Branch
+git branch -d branch-name	    #Deletes a local branch (only if it's already merged). Use -D to force delete unmerged branches.
+Delete a Remote Branch
+git push origin --delete branch-name   #Deletes a branch from the remote GitHub repository.
+Merge a Branch into the Current Branch
+git merge branch-name   #Merges the specified branch into the currently active branch.
+
