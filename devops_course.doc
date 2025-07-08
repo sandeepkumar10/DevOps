@@ -335,9 +335,6 @@ git push -u origin main  #-u sets the upstream so future git push or git pull wi
 Pull Changes from GitHub to Your VM (When Needed):
 git pull
 
-
-
-
 Git Advanced Commands
 Clone a GitHub Repository
 git clone https://github.com/your-username/repo-name.git	#Clones a remote GitHub repository to your local machine.
